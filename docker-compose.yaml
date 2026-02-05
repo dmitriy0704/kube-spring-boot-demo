@@ -1,0 +1,14 @@
+services:
+  demo-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8090:8090"
+    image: demo-service:latest
+    container_name: demo-service
+    restart: unless-stopped
+    environment:
+      - SERVER_PORT=8090
+      - SPRING_APPLICATION_NAME=demo-service
+      - JAVA_OPTS=-Xms256m -Xmx512m
